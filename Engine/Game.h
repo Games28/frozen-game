@@ -19,13 +19,14 @@
  *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
  ******************************************************************************************/
 #pragma once
+#pragma comment(linker, "/STACK:2000000")
+#pragma comment(linker, "/HEAP:2000000")
 
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Background.h"
 #include "Characters.h"
-#include <iostream>
 #include "Numbers.h"
 
 enum class gameState

@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include "Graphics.h"
 #include "Vei2.h"
 #include "Keyboard.h"
@@ -11,16 +11,16 @@ public:
 	void Selection(Keyboard& kbd);
 	void Draw(Graphics& gfx);
 	//art
-	static void Number0Art(int x, int y, Graphics& gfx);
-	static void Number1Art(int x, int y, Graphics& gfx);
-	static void Number2Art(int x, int y, Graphics& gfx);
-	static void Number3Art(int x, int y, Graphics& gfx);
-	static void Number4Art(int x, int y, Graphics& gfx);
-	static void Number5Art(int x, int y, Graphics& gfx);
-	static void Number6Art(int x, int y, Graphics& gfx);
-	static void Number7Art(int x, int y, Graphics& gfx);
-	static void Number8Art(int x, int y, Graphics& gfx);
-	static void Number9Art(int x, int y, Graphics& gfx);
+	 void Number0Art(int x, int y, Graphics& gfx);
+	 void Number1Art(int x, int y, Graphics& gfx);
+	 void Number2Art(int x, int y, Graphics& gfx);
+	 void Number3Art(int x, int y, Graphics& gfx);
+	 void Number4Art(int x, int y, Graphics& gfx);
+	 void Number5Art(int x, int y, Graphics& gfx);
+	 void Number6Art(int x, int y, Graphics& gfx);
+	 void Number7Art(int x, int y, Graphics& gfx);
+	 void Number8Art(int x, int y, Graphics& gfx);
+	 void Number9Art(int x, int y, Graphics& gfx);
 	int Count();
 	
 private:

@@ -5,20 +5,20 @@ class Characters
 {
 public:
 	//menu art
-	static void ElsaMenuArt(Vei2& pos, Graphics& gfx);
-	static void AnnaMenuArt(Vei2& pos, Graphics& gfx);
-	static void OlafMenuArt(Vei2& pos, Graphics& gfx);
-	static void LizardMenuArt(Vei2& pos, Graphics& gfx);
-	static void SnowSelector(Vei2& pos, Graphics& gfx);
-	static void Count10(Vei2& pos, Graphics& gfx);
-	static void Count25(Vei2& pos, Graphics& gfx);
-	static void Count50(Vei2& pos, Graphics& gfx);
+	void ElsaMenuArt(Vei2& pos, Graphics& gfx);
+	void AnnaMenuArt(Vei2& pos, Graphics& gfx);
+	void OlafMenuArt(Vei2& pos, Graphics& gfx);
+	void LizardMenuArt(Vei2& pos, Graphics& gfx);
+	void SnowSelector(Vei2& pos, Graphics& gfx);
+	void Count10(Vei2& pos, Graphics& gfx);
+	void Count25(Vei2& pos, Graphics& gfx);
+	void Count50(Vei2& pos, Graphics& gfx);
 	//game art
-	static void ElsaGameArt(int x, int y, Graphics& gfx);
-	static void AnnaGameArt(int x, int y, Graphics& gfx);
-	static void OlafGameArt(int x, int y, Graphics& gfx);
-	static void LizardGameArt(int x, int y, Graphics& gfx);
-	static void TheAmount(Vei2& pos, Graphics& gfx);
+	void ElsaGameArt(int x, int y, Graphics& gfx);
+	void AnnaGameArt(int x, int y, Graphics& gfx);
+	void OlafGameArt(int x, int y, Graphics& gfx);
+	void LizardGameArt(int x, int y, Graphics& gfx);
+	void TheAmount(Vei2& pos, Graphics& gfx);
 
 	
 	

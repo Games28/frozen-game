@@ -20,8 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
-#include <iostream>
-#include <assert.h>
+
 #include <random>
 
 Game::Game(MainWindow& wnd)
@@ -34,7 +33,7 @@ Game::Game(MainWindow& wnd)
     X25(1, 5),
     Y25(1,2),
     X10(1,9),
-    Rnumber(1,8)
+    Rnumber(1,4)
     
 {
    
@@ -235,19 +234,19 @@ void Game::DrawCharacters()
         {
             if (player == Player::ELSA)
             {
-                Characters::ElsaGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
+                character.ElsaGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
             }
             else if (player == Player::ANNA)
             {
-                Characters::AnnaGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
+                character.AnnaGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
             }
             else if (player == Player::OLAF)
             {
-                Characters::OlafGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
+                character.OlafGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
             }
             else if( player == Player::LIZARD)
             {
-                Characters::LizardGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
+                character.LizardGameArt(charPos.x + (x * charwidth), charPos.y + (y * charheight), gfx);
              
             }
            
