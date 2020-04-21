@@ -25,7 +25,6 @@
 #include "Graphics.h"
 #include "Background.h"
 #include "Characters.h"
-#include <iostream>
 #include "Numbers.h"
 
 enum class gameState
