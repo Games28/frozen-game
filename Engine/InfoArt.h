@@ -6,24 +6,25 @@
 #include <string>
 
 
-class WinArt
+
+
+class InfoArt
 {
 public:
-	WinArt() = default;
-	WinArt(const std::string& filename);
-	WinArt(int width, int height);
-	WinArt(const WinArt& rhs);
-	~WinArt();
-	WinArt& operator=(const WinArt& rhs);
+	InfoArt() = default;
+	InfoArt(const std::string& filename);
+	InfoArt(int width, int height);
+	InfoArt(const InfoArt& rhs);
+	~InfoArt();
+	InfoArt& operator=(const InfoArt& rhs);
 	void PutPixel(int x, int y, Color c);
 	Color GetPixel(int x, int y) const;
-
 	int GetWidth() const;
 	int GetHeight() const;
+
 private:
 	Color* pPixels = nullptr;
 	int width;
 	int height;
-	
 };
 

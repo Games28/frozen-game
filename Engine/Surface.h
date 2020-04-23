@@ -1,23 +1,19 @@
 #pragma once
-#include "ChiliWin.h"
-#include <cassert>
-#include <fstream>
 #include "colors.h"
 #include <string>
 
 
-class WinArt
+class Surface
 {
 public:
-	WinArt() = default;
-	WinArt(const std::string& filename);
-	WinArt(int width, int height);
-	WinArt(const WinArt& rhs);
-	~WinArt();
-	WinArt& operator=(const WinArt& rhs);
+	Surface(const std::string& filename);
+	Surface(int width, int height);
+	Surface(const Surface& rhs);
+	~Surface();
+	Surface& operator=(const Surface& rhs);
 	void PutPixel(int x, int y, Color c);
 	Color GetPixel(int x, int y) const;
-
+	
 	int GetWidth() const;
 	int GetHeight() const;
 private:
@@ -26,4 +22,3 @@ private:
 	int height;
 	
 };
-

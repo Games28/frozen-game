@@ -1,7 +1,7 @@
-#include "FailArt.h"
+#include "InfoArt.h"
 
 
-FailArt::FailArt(const std::string& filename)
+InfoArt::InfoArt(const std::string& filename)
 {
 	std::ifstream file(filename, std::ios::binary);
 	assert(file);
@@ -32,7 +32,7 @@ FailArt::FailArt(const std::string& filename)
 	}
 }
 
-FailArt::FailArt(int width, int height)
+InfoArt::InfoArt(int width, int height)
 	:
 	width(width),
 	height(height),
@@ -40,9 +40,9 @@ FailArt::FailArt(int width, int height)
 {
 }
 
-FailArt::FailArt(const FailArt& rhs)// deep copy
+InfoArt::InfoArt(const InfoArt& rhs)// deep copy
 	:
-	FailArt(rhs.width, rhs.height)
+	InfoArt(rhs.width, rhs.height)
 {
 	const int nPixels = width * height;
 	for (int i = 0; i < nPixels; i++)
@@ -51,13 +51,13 @@ FailArt::FailArt(const FailArt& rhs)// deep copy
 	}
 }
 
-FailArt::~FailArt()
+InfoArt::~InfoArt()
 {
 	delete[] pPixels;
 	pPixels = nullptr;
 }
 
-FailArt& FailArt::operator=(const FailArt& rhs)
+InfoArt& InfoArt::operator=(const InfoArt& rhs)
 {
 	width = rhs.width;
 	height = rhs.height;
@@ -72,7 +72,7 @@ FailArt& FailArt::operator=(const FailArt& rhs)
 	return *this;
 }
 
-void FailArt::PutPixel(int x, int y, Color c)
+void InfoArt::PutPixel(int x, int y, Color c)
 {
 	assert(x >= 0);
 	assert(x < width);
@@ -81,7 +81,7 @@ void FailArt::PutPixel(int x, int y, Color c)
 	pPixels[y * width + x] = c;
 }
 
-Color FailArt::GetPixel(int x, int y) const
+Color InfoArt::GetPixel(int x, int y) const
 {
 	assert(x >= 0);
 	assert(x < width);
@@ -92,12 +92,12 @@ Color FailArt::GetPixel(int x, int y) const
 
 
 
-int FailArt::GetWidth() const
+int InfoArt::GetWidth() const
 {
 	return width;
 }
 
-int FailArt::GetHeight() const
+int InfoArt::GetHeight() const
 {
 	return height;
 }

@@ -26,6 +26,9 @@
 #include "Background.h"
 #include "Characters.h"
 #include "Numbers.h"
+#include "FailArt.h"
+#include "InfoArt.h"
+
 
 enum class gameState
 {
@@ -75,7 +78,7 @@ private:
     Background back;
     Background backF;
     Characters character;
-    gameState state = gameState::TITLE;
+    gameState state = gameState::MENU;
     Math numbers = Math::DEFAULT;
     Player player = Player::DEFUALT;
     Numbers number;
@@ -99,6 +102,8 @@ private:
     int Randomnumber;
     bool countchecked = false;
     bool characterchecked = false;
+    
+    
 	/********************************/
 	/*  User Variables              */
 	/********************************/

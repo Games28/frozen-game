@@ -25,6 +25,10 @@
 #include "Colors.h"
 #include "RectI.h"
 #include "Vei2.h"
+#include "WinArt.h"
+#include "FailArt.h"
+#include "InfoArt.h"
+
 
 class Graphics
 {
@@ -78,6 +82,12 @@ public:
 	
 	void PstartPosition(int x, int y);
 
+	
+	void DrawSpriteW(int x, int y, const WinArt& s);
+	void DrawSpriteI(int x, int y, const InfoArt& info);
+	void DrawSpriteF(int x, int y, const FailArt& info);
+
+
 	~Graphics();
 private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;
@@ -97,3 +107,5 @@ public:
 	static constexpr int ScreenWidth = 800;
 	static constexpr int ScreenHeight = 600;
 };
+
+

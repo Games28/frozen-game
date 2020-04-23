@@ -1,7 +1,9 @@
-#include "FailArt.h"
+#include "Surface.h"
+#include "ChiliWin.h"
+#include <cassert>
+#include <fstream>
 
-
-FailArt::FailArt(const std::string& filename)
+Surface::Surface(const std::string& filename)
 {
 	std::ifstream file(filename, std::ios::binary);
 	assert(file);
@@ -12,37 +14,37 @@ FailArt::FailArt(const std::string& filename)
 	file.read(reinterpret_cast<char*>(&bmInfoHeader), sizeof(bmInfoHeader));
 
 	assert(bmInfoHeader.biBitCount == 24);
-	assert(bmInfoHeader.biCompression == BI_RGB);
+	assert(bmInfoHeader.biCompression == BI_RGB);  
 
 	width = bmInfoHeader.biWidth;
 	height = bmInfoHeader.biHeight;
 
-	pPixels = new Color[width * height];
-
+	pPixels = new Color[width * height]; 
+	 
 	file.seekg(BmFIleHeader.bfOffBits);
-	const int padding = (4 - (width * 3) % 4) % 4;
+	const int padding = (4- (width * 3) %4) % 4;
 
-	for (int y = height - 1; y >= 0; y--)
+	for (int y = height - 1; y  >= 0; y--)
 	{
 		for (int x = 0; x < width; x++)
 		{
-			PutPixel(x, y, Color(file.get(), file.get(), file.get()));
+			PutPixel(x , y , Color( file.get(), file.get(), file.get() ));
 		}
 		file.seekg(padding, std::ios::cur);
 	}
 }
 
-FailArt::FailArt(int width, int height)
+Surface::Surface(int width, int height)
 	:
 	width(width),
 	height(height),
-	pPixels(new Color[width * height])
+	pPixels(new Color[width*height])
 {
 }
 
-FailArt::FailArt(const FailArt& rhs)// deep copy
+Surface::Surface(const Surface& rhs)// deep copy
 	:
-	FailArt(rhs.width, rhs.height)
+	Surface(rhs.width, rhs.height)
 {
 	const int nPixels = width * height;
 	for (int i = 0; i < nPixels; i++)
@@ -51,13 +53,13 @@ FailArt::FailArt(const FailArt& rhs)// deep copy
 	}
 }
 
-FailArt::~FailArt()
+Surface::~Surface()
 {
 	delete[] pPixels;
 	pPixels = nullptr;
 }
 
-FailArt& FailArt::operator=(const FailArt& rhs)
+Surface& Surface::operator=(const Surface& rhs)
 {
 	width = rhs.width;
 	height = rhs.height;
@@ -72,7 +74,7 @@ FailArt& FailArt::operator=(const FailArt& rhs)
 	return *this;
 }
 
-void FailArt::PutPixel(int x, int y, Color c)
+void Surface::PutPixel(int x, int y, Color c)
 {
 	assert(x >= 0);
 	assert(x < width);
@@ -81,7 +83,7 @@ void FailArt::PutPixel(int x, int y, Color c)
 	pPixels[y * width + x] = c;
 }
 
-Color FailArt::GetPixel(int x, int y) const
+Color Surface::GetPixel(int x, int y) const
 {
 	assert(x >= 0);
 	assert(x < width);
@@ -92,12 +94,12 @@ Color FailArt::GetPixel(int x, int y) const
 
 
 
-int FailArt::GetWidth() const
+int Surface::GetWidth() const
 {
 	return width;
 }
 
-int FailArt::GetHeight() const
+int Surface::GetHeight() const
 {
 	return height;
 }

@@ -8428,11 +8428,11 @@ void Snowflakes::Collision()
 	{
 		vel.x = -vel.x;
 	}
-	if (pos.x + snowdimension >= Graphics::ScreenWidth)
+	if (pos.x + snowdimension >= Graphics::ScreenWidth - 20)
 	{
 		vel.x =- vel.x;
 	}
-	if (pos.y + snowdimension >= Graphics::ScreenHeight)
+	if (pos.y + snowdimension >= Graphics::ScreenHeight -20)
 	{
 		isinit = false;
 	}

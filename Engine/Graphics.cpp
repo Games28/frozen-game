@@ -26144,6 +26144,48 @@ void Graphics::PstartPosition(int x, int y)
 
 }
 
+
+void Graphics::DrawSpriteW(int x, int y, const WinArt& s)
+{
+	const int width = s.GetWidth();
+	const int height = s.GetHeight();
+	for (int sy = 0; sy < height; sy++)
+	{
+		for (int sx = 0; sx < width; sx++)
+		{
+			PutPixel(x + sx, y + sy, s.GetPixel(sx, sy));
+		}
+	}
+}
+
+void Graphics::DrawSpriteI(int x, int y, const InfoArt& info)
+{
+	const int width = info.GetWidth();
+	const int height = info.GetHeight();
+
+	for (int sy = 0; sy < height; sy++)
+	{
+		for (int sx = 0; sx < width; sx++)
+		{
+			PutPixel(x + sx, y + sy, info.GetPixel(sx, sy));
+		}
+	}
+}
+
+void Graphics::DrawSpriteF(int x, int y, const FailArt& info)
+{
+	const int width = info.GetWidth();
+	const int height = info.GetHeight();
+
+	for (int sy = 0; sy < height; sy++)
+	{
+		for (int sx = 0; sx < width; sx++)
+		{
+			PutPixel(x + sx, y + sy, info.GetPixel(sx, sy));
+		}
+	}
+}
+
 Graphics::~Graphics()
 {
 	// free sysbuffer memory (aligned free)

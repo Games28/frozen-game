@@ -51,15 +51,17 @@ void Game::Go()
 void Game::UpdateModel()
 {
     
-    back.Snowinitailization();
-    back.snowCollision();
-    backF.Snowinitailization();
-    backF.snowCollision();
+    
+    
     
     switch (state)
     {
 
     case gameState::TITLE:
+        back.Snowinitailization();
+        back.snowCollision();
+       // backF.titleInit();
+        
         if (wnd.kbd.KeyIsPressed(VK_SPACE))
         {
 
@@ -67,7 +69,9 @@ void Game::UpdateModel()
         }
         break;
     case gameState::MENU:
-
+        back.Snowinitailization();
+        back.snowCollision();
+      //backF.titleInit();
         MenuSelection();
         Randomnumber = Rnumber(rng);
         
@@ -99,8 +103,10 @@ void Game::UpdateModel()
         
         break;
     case gameState::GAME:
+        back.Snowinitailization();
+        back.snowCollision();
        
-       
+        //backF.GameInit();
         
         
         Randomtotal = randomY * randomX;
@@ -124,6 +130,7 @@ void Game::UpdateModel()
         break;
     case gameState::WIN:
     {
+        backF.WinInit();
         if (wnd.kbd.KeyIsPressed(VK_BACK))
         {
             Counttotal = 0;
@@ -137,6 +144,7 @@ void Game::UpdateModel()
     }
     case gameState::LOSE:
     {
+        backF.FailInit();
         if (wnd.kbd.KeyIsPressed(VK_BACK))
         {
             Counttotal = 0;
@@ -150,7 +158,7 @@ void Game::UpdateModel()
     }
 
     }
-    
+   
 }
 
 
@@ -172,34 +180,27 @@ void Game::ComposeFrame()
     case gameState::TITLE:
 
         back.DrawSnow(gfx);
-        back.MenuBackGround(Vei2{ 100,100 }, gfx);
-        backF.DrawSnow(gfx);
-        backF.CloudArt(Vei2{ 0,0 }, gfx);
-        back.GroundSnow(Vei2{ 25,494 }, gfx);
-        back.Spacebutton(Vei2{ 200,540 }, gfx);
+        backF.TitleDraw(gfx);
+       
+        
         break;
 
     case gameState::MENU:
         back.DrawSnow(gfx);
-            back.MenuBackGround(Vei2{ 100,100 }, gfx);
-            backF.DrawSnow(gfx);
-            backF.CloudArt(Vei2{ 0,0 }, gfx);
-            back.GroundSnow(Vei2{ 25,494 }, gfx);
+       //backF.MenuDraw(gfx);
+           
+            
+            
             MenuCharacters();
-            back.CharacterOptions(Vei2{ 600, 120 }, gfx);
-            back.CountOptions(Vei2{ 10,420 }, gfx);
-            back.Spacebutton(Vei2{ 200,540 }, gfx);
+          
         
         break;
     case gameState::GAME:
 
         back.DrawSnow(gfx);
-            back.GameBackGround(Vei2{ 100,100 }, gfx);
-            backF.DrawSnow(gfx);
-            
+       // backF.GameDraw(gfx);
             DrawCharacters();
-            backF.CloudArt(Vei2{ 0,0 }, gfx);
-            back.GroundSnow(Vei2{ 25,494 }, gfx);
+           
             character.TheAmount(Vei2{ 0,0 }, gfx);
             number.Draw(gfx);
            
@@ -207,21 +208,17 @@ void Game::ComposeFrame()
         break;
     case gameState::WIN:
 
-        back.TheWin(Randomnumber, Vei2{ 250,200 }, gfx);
-        back.Exitbutton(Vei2{ 500,500 }, gfx);
+        backF.WinDraw(Rnumber(rng), gfx);
         break;
     case gameState::LOSE:
-
-        back.TheLoss(Randomnumber, Vei2{ 200,100 }, gfx);
-            back.Exitbutton(Vei2{ 500,500 }, gfx);
+        backF.FailDraw(Rnumber(rng), gfx);
+        
         break;
     }
-    back.Instructionsbutton(Vei2{ 550,0 }, gfx);
-   if (wnd.kbd.KeyIsPressed(VK_TAB))
+   
+    if (wnd.kbd.KeyIsPressed(VK_TAB))
     {
-    
-        back.InstructionsMenu(Vei2{ 100,100 }, gfx);
-       
+        backF.instructDraw(gfx);
     }
 }
 
